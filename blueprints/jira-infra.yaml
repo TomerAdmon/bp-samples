@@ -12,4 +12,4 @@ grains:
         host:
           compute-service: on-prem
         commands:
-          - "version && ls-l"
+          - "dep up "charts/jira"
