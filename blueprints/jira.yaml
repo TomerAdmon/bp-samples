@@ -13,8 +13,8 @@ grains:
       kind: helm
       spec:
         source:
-          path: https://github.com/atlassian/data-center-helm-charts.git//tree/main/src/main/charts/jira
+          path: https://github.com/atlassian/data-center-helm-charts.git//src/main/charts/jira
         host:
           compute-service: '{{.inputs.compute}}'
         commands:
-          - "dep up tree/main/src/main/charts/jira"
+          - "dep up src/main/charts/jira"
