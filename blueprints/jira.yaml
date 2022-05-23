@@ -1,0 +1,13 @@
+spec_version: 2-preview
+description: Initializing a Jira instance 
+
+grains:
+  jira:
+      kind: helm
+      spec:
+        source:
+          path: https://github.com/atlassian/data-center-helm-charts//charts/jira
+        host:
+          compute-service: on-prem
+        commands:
+          - "dep up charts/jira"
