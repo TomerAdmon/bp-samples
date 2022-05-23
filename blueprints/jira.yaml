@@ -17,4 +17,4 @@ grains:
         host:
           compute-service: '{{.inputs.compute}}'
         commands:
-          - "dep up charts/jira"
+          - "dep up tree/main/src/main/charts/jira"
