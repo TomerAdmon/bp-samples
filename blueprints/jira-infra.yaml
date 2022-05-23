@@ -8,7 +8,7 @@ grains:
       kind: helm
       spec:
         source:
-          path: https://github.com/atlassian/data-center-helm-charts/tree/main/src/main/charts/jira
+          path: https://github.com/atlassian/data-center-helm-charts//charts/jira
         host:
           compute-service: on-prem
         commands:
