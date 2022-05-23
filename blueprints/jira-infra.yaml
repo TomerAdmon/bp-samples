@@ -12,4 +12,4 @@ grains:
         host:
           compute-service: on-prem
         commands:
-          - "dep up /chart/chart.yaml"
+          - "version && ls-l"
