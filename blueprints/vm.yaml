@@ -10,6 +10,12 @@ inputs:
     type: string
     display-style: normal
     default: t3.micro
+  access_key:
+    type: string
+    display-style: normal
+   secret:
+    type: string
+    display-style: normal
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
   password:
@@ -35,6 +41,8 @@ grains:
       # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
       env-vars:
         - AWS_REGION: us-west-2
+        - AWS_ACCESS_KEY_ID: '{{ .inputs.access_key }}'
+        - AWS_SECRET_ACCESS_KEY: '{{ .inputs.secret }}'
       # - name: VAR_NAME
       #   value: var value
       outputs:
