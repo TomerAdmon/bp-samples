@@ -16,6 +16,9 @@ inputs:
   secret:
     type: string
     display-style: normal
+  token:
+    type: string
+    display-style: normal
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
   password:
@@ -43,6 +46,7 @@ grains:
         - AWS_REGION: us-west-2
         - AWS_ACCESS_KEY_ID: '{{ .inputs.access_key }}'
         - AWS_SECRET_ACCESS_KEY: '{{ .inputs.secret }}'
+        - AWS_SESSION_TOKEN: '{{ .inputs.token }}'
       # - name: VAR_NAME
       #   value: var value
       outputs:
