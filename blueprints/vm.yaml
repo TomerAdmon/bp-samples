@@ -33,9 +33,6 @@ grains:
       - ami: '{{ .inputs.ami }}'
       - instance_type: '{{ .inputs.instance_type }}'
       # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
-      env-vars:
-      - name: AWS_REGION
-        value: us-west-2
       outputs:
       - password
       - public_ip
