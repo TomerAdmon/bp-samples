@@ -5,13 +5,11 @@ inputs:
   ami:
     type: string
     display-style: normal
+    default: ami-024437e14746c4dcb
   instance_type:
     type: string
     display-style: normal
     default: t3.micro
-  host_name:
-    type: string
-    display-style: normal
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
   password:
@@ -28,7 +26,7 @@ grains:
       host:
       # Execution Host - the platform where the asset executable will run.
       # For example, a Kubernetes cluster can be used as an execution host.
-        name: '{{ .inputs.host_name }}'
+        name: k8s-dbs
         # A service account annotated with a role ARN with permissions to run the asset
         # service-account: <service-account-name>
       scripts: 
