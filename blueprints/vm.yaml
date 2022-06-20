@@ -29,18 +29,13 @@ grains:
         name: k8s-dbs
         # A service account annotated with a role ARN with permissions to run the asset
         # service-account: <service-account-name>
-      scripts: 
-        pre-tf-init:
-          source:
-            store: bp-samples
-            path : scripts/region.sh
       inputs:
       - ami: '{{ .inputs.ami }}'
       - instance_type: '{{ .inputs.instance_type }}'
       # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
-      # env-vars:
-      # - name: VAR_NAME
-      #   value: var value
+      env-vars:
+      - name: AWS_REGION
+        value: us-west-2
       env-vars: []
       outputs:
       - password
