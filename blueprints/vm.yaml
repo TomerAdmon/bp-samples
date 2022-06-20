@@ -31,6 +31,11 @@ grains:
         name: '{{ .inputs.host_name }}'
         # A service account annotated with a role ARN with permissions to run the asset
         # service-account: <service-account-name>
+      scripts: 
+        pre-tf-init:
+          source:
+            store: bp-samples
+            path : scripts/region.sh
       inputs:
       - ami: '{{ .inputs.ami }}'
       - instance_type: '{{ .inputs.instance_type }}'
