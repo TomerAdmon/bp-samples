@@ -21,7 +21,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: terraform
+        store: terraform-tomer
         path: ec2-ssh
       host:
       # Execution Host - the platform where the asset executable will run.
