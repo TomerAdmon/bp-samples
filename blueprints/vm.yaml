@@ -1,0 +1,46 @@
+spec_version: 2
+description: Auto generated blueprint for terraform module ec2-ssh
+# blueprint inputs can be provided by the user, API or CI plugin when creating an environment from this blueprint.
+inputs:
+  ami:
+    type: string
+    display-style: normal
+  instance_type:
+    type: string
+    display-style: normal
+    default: t3.micro
+  host_name:
+    type: string
+    display-style: normal
+# blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
+outputs:
+  password:
+    value: '{{ .grains.ec2-ssh.outputs.password }}'
+  public_ip:
+    value: '{{ .grains.ec2-ssh.outputs.public_ip }}'
+grains:
+  ec2-ssh:
+    kind: terraform
+    spec:
+      source:
+        store: terraform
+        path: ec2-ssh
+      host:
+      # Execution Host - the platform where the asset executable will run.
+      # For example, a Kubernetes cluster can be used as an execution host.
+        name: '{{ .inputs.host_name }}'
+        # A service account annotated with a role ARN with permissions to run the asset
+        # service-account: <service-account-name>
+      inputs:
+      - ami: '{{ .inputs.ami }}'
+      - instance_type: '{{ .inputs.instance_type }}'
+      # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
+      # env-vars:
+      # - name: VAR_NAME
+      #   value: var value
+      env-vars: []
+      outputs:
+      - password
+      - public_ip
+    # The terraform version that will be used to deploy the module
+    tf-version: 1.2.3
