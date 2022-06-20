@@ -13,7 +13,7 @@ inputs:
   access_key:
     type: string
     display-style: normal
-   secret:
+  secret:
     type: string
     display-style: normal
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
